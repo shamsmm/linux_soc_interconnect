@@ -13,8 +13,11 @@ always_comb begin
     dbus_if_core0.bdone = 1'b0;
     dbus_if_core0.bgnt = dbus_if_core0.breq; // always grant (no contention)
 
+    // prevent latch
     dbus_if_mem0.ss = 1'b0;
     dbus_if_gpio0.ss = 1'b0;
+    dbus_if_clit0.ss = 1'b0;
+    dbus_if_plic0.ss = 1'b0;
     //dbus_if_uart0.ss = 1'b0;
 
     // connect to bus
